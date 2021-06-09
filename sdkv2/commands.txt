@@ -1,0 +1,5 @@
+aws s3api put-bucket-versioning --bucket awsd-demo05 --versioning-configuration Status=Enabled
+
+aws s3api put-bucket-versioning --bucket awsd-demo05 --versioning-configuration Status=Suspended
+
+aws s3api list-parts --bucket awsd-demo05 --key video.mp4 --upload-id 

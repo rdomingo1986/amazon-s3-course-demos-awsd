@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Developing on AWS CORS Demo</title>
+</head>
+<body>
+  
+  <script src="./aws-sdk-2.538.0.min.js"></script>
+  <script src="./env.js"></script>
+  <script type="text/javascript">
+    var s3 = new AWS.S3({
+      accessKeyId: config.accessKeyId,
+      secretAccessKey: config.secretAccessKey,
+      region: config.region
+    });
+
+    s3.listObjectsV2({
+      Bucket: 'awsd-demos3'
+    }, function(err, response) {
+      if (err) return console.log(err);
+      console.log(response);
+    });
+
+    s3.deleteObject({
+      Bucket: 'awsd-demos3',
+      Key: 's3faqs.txt'
+    }, function(err, response) {
+      if (err) return console.log(err);
+      console.log(response);
+    });
+  </script>
+</body>
+</html>
