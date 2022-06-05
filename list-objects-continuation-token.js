@@ -4,8 +4,9 @@ const util = require('util');
 
 const run = async function () {
   try {
-    var response = await s3.createBucket({
-      Bucket: process.argv[2] ? process.argv[2] : 'awsd-officialcourse-demo-amazon-s3'
+    var response = await s3.listObjectsV2({
+      Bucket: 'continuation-token-demo',
+      ContinuationToken: process.argv[2] ? process.argv[2] : undefined
     });
     console.log(util.inspect(response, false, null, true));
   } catch (err) {
