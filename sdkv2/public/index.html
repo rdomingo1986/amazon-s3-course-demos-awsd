@@ -7,7 +7,9 @@
   <title>Developing on AWS CORS Demo</title>
 </head>
 <body>
-  
+  <button type="button" onclick="listObjects()">List</button>      
+  <button type="button" onclick="deleteObject()">Delete</button>
+
   <script src="./aws-sdk-2.538.0.min.js"></script>
   <script src="./env.js"></script>
   <script type="text/javascript">
@@ -16,21 +18,25 @@
       secretAccessKey: config.secretAccessKey,
       region: config.region
     });
-
-    s3.listObjectsV2({
-      Bucket: 'awsd-demos3'
-    }, function(err, response) {
-      if (err) return console.log(err);
-      console.log(response);
-    });
-
-    s3.deleteObject({
-      Bucket: 'awsd-demos3',
-      Key: 's3faqs.txt'
-    }, function(err, response) {
-      if (err) return console.log(err);
-      console.log(response);
-    });
+    
+    function listObjects() {
+      s3.listObjectsV2({
+        Bucket: 's3--cors'
+      }, function(err, response) {
+        if (err) return console.log(err);
+        console.log(response);
+      });
+    }
+    
+    function deleteObject() {
+      s3.deleteObject({
+        Bucket: 's3--cors',
+        Key: 's3faqs.txt'
+      }, function(err, response) {
+        if (err) return console.log(err);
+        console.log(response);
+      });
+    }
   </script>
 </body>
 </html>
