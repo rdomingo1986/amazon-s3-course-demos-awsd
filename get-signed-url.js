@@ -13,7 +13,7 @@ const run = async function () {
       Key: process.argv[2]
     });
 
-    const url = await getSignedUrl(client, command, { expiresIn: 60 })
+    const url = await getSignedUrl(client, command, { expiresIn: 30 })
 
     console.log(url);
   } catch (err) {

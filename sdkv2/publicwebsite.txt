@@ -5,7 +5,7 @@
             "Effect": "Allow",
             "Principal": "*",
             "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::awsd-course-demo05-staticwebsite/*"
+            "Resource": "arn:aws:s3:::cors-website-demo1986/*"
         }
     ]
 }

@@ -5,7 +5,7 @@ const util = require('util');
 const run = async function () {
   try {
     var response = await s3.deleteBucket({
-      Bucket: 'awsd-officialcourse-demo-amazon-s3'
+      Bucket: process.argv[2] ? process.argv[2] : 'awsd-officialcourse-demo-amazon-s3'
     });
     console.log(util.inspect(response, false, null, true));
   } catch (err) {
